@@ -20,7 +20,7 @@ echo "==> build and start containers"
 $COMPOSE_CMD -f "$COMPOSE_FILE" --env-file "$ENV_FILE" up -d --build
 
 echo "==> run database migrations"
-$COMPOSE_CMD -f "$COMPOSE_FILE" --env-file "$ENV_FILE" exec -T backend alembic upgrade head
+$COMPOSE_CMD -f "$COMPOSE_FILE" --env-file "$ENV_FILE" exec -T backend sh -c "cd /app && alembic -c alembic.ini upgrade head"
 
 echo "==> show service status"
 $COMPOSE_CMD -f "$COMPOSE_FILE" --env-file "$ENV_FILE" ps

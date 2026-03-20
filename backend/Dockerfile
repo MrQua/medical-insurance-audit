@@ -34,6 +34,8 @@ COPY --from=builder /app/.venv /app/.venv
 
 # 复制应用代码
 COPY app/ ./app/
+COPY alembic.ini ./alembic.ini
+COPY alembic/ ./alembic/
 
 # 创建上传目录
 RUN mkdir -p /app/uploads
