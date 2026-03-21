@@ -37,7 +37,9 @@ env/
 # Project specific
 uploads/*
 !uploads/.gitkeep
-models/
+/models/
+!backend/app/models/
+!backend/app/models/**
 *.db
 .env.local
 .env
